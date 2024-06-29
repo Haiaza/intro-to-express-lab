@@ -40,17 +40,15 @@ app.listen(3000, () => {
 //task 3 
 
 app.get('/collectibles/:indexNum', (req, res) => {
-  let name = req.params.indexNum.name
-  let price = req.params.indexNum.price
 
-  const collectibles = [
-    { name: 'shiny ball', price: 5.95 },
-    { name: 'autographed picture of a dog', price: 10 },
-    { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
-  ];
+const collectibles = [
+  { name: 'shiny ball', price: 5.95 },
+  { name: 'autographed picture of a dog', price: 10 },
+  { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
+];
+index = req.params.indexNum
 
-  
-  collectibles.forEach((index) => {
-    res.send(`<h1>Looks like you wanted the ${index.name}?`)
-  })
+
+res.send(`<h1>Looks like you wanted the '${collectibles[index].name}'? For the low price of $${collectibles[index].price} it's all yours!</h1>`)
+
 })
