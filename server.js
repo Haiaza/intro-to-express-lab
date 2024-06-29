@@ -49,6 +49,10 @@ const collectibles = [
 index = req.params.indexNum
 
 
+if (isNaN(req.params.indexNum) || req.params.indexNum >= collectibles.length || req.params.indexNum < 0)  {
+  res.send(`<h1>This item is not yet in stock. Check back soon!</h1>`)
+}
+
 res.send(`<h1>Looks like you wanted the '${collectibles[index].name}'? For the low price of $${collectibles[index].price} it's all yours!</h1>`)
 
 })
