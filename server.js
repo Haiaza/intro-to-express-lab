@@ -56,3 +56,46 @@ if (isNaN(req.params.indexNum) || req.params.indexNum >= collectibles.length || 
 res.send(`<h1>Looks like you wanted the '${collectibles[index].name}'? For the low price of $${collectibles[index].price} it's all yours!</h1>`)
 
 })
+
+
+// task 4
+
+
+
+
+
+app.get('/shoes', (req, res) => {
+
+  const shoes = [
+    { name: "Birkenstocks", price: 50, type: "sandal" },
+    { name: "Air Jordans", price: 500, type: "sneaker" },
+    { name: "Air Mahomeses", price: 501, type: "sneaker" },
+    { name: "Utility Boots", price: 20, type: "boot" },
+    { name: "Velcro Sandals", price: 15, type: "sandal" },
+    { name: "Jet Boots", price: 1000, type: "boot" },
+    { name: "Fifty-Inch Heels", price: 175, type: "heel" }
+  ];
+
+
+  let output;
+
+  switch (req.query) {
+    case 'min-price':
+      output = 'MIN PRICE';
+      break;
+    case 'max-price':
+      output = 'MAX PRICE';
+      break;
+    case 'type':
+      output = 'TYPE';
+      break;
+    case '':
+      output = 'None';
+      break;
+    default:
+      console.log('???')
+      output = 'Test message'
+  }
+  res.send(output)
+})
+
