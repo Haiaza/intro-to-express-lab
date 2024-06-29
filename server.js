@@ -26,9 +26,10 @@ app.get('/roll/:number', (req, res) => {
   }
 
   if (typeof number === 'number'){
-    
-    res.send(`<h1>${Math.floor(Math.random * number)}<h1/>`)
-    console.log(`${req.params.number} is our selected number`)
+
+
+    res.send(`<h1>${Math.floor(Math.random()) * number}</h1>`)
+    console.log(`${number} is our selected number`)
   }
 })
 
