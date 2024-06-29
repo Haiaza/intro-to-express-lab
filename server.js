@@ -6,17 +6,21 @@ app.get("/", (req, res) => {
 });
 
 app.get('/greetings', (req, res) => {
-  res.send('Nice shot!')
+  res.send('How are ya stranger?')
 })
 
 app.get("/greetings/:username", (req, res) => {
   res.send(`I hope you have a great day ${req.params.username}`);
 });
 
+//task 1
+
+
 app.get('/roll/:number', (req, res) => {
-  req =  parseInt(req)
-  if (typeof req.params.number === 'number'){
-    console.log('Number detected')
+  let number = parseInt(req.params.number);
+  
+  if (typeof number === 'number'){
+    res.send(`Number detected`)
   }
 })
 
