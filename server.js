@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+//task 1
+
+
 app.get("/", (req, res) => {
   res.send("This is text");
 });
@@ -13,14 +16,19 @@ app.get("/greetings/:username", (req, res) => {
   res.send(`I hope you have a great day ${req.params.username}`);
 });
 
-//task 1
-
+// Task 2
 
 app.get('/roll/:number', (req, res) => {
   let number = parseInt(req.params.number);
   
+  if (isNaN(number)){
+    res.send(`You must specify a number.`)
+  }
+
   if (typeof number === 'number'){
-    res.send(`Number detected`)
+    
+    res.send(`<h1>${Math.floor(Math.random * number)}<h1/>`)
+    console.log(`${req.params.number} is our selected number`)
   }
 })
 
