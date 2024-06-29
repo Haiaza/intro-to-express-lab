@@ -49,8 +49,8 @@ app.get('/collectibles/:indexNum', (req, res) => {
     { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
   ];
 
-
+  
   collectibles.forEach((index) => {
-    res.send(`<h1>Looks like you wanted the ${index.name}? For only $${index.price} it's yours!</h1>`)
+    res.send(`<h1>Looks like you wanted the ${index.name}?`)
   })
 })
