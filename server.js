@@ -80,8 +80,15 @@ app.get('/shoes', (req, res) => {
   let price = req.query.price 
   let type = req.query.type  
 
+  if (req.query[name]){
+    res.send('Namee')
+  }else if (req.query[type]){
+    res.send('Typer')
+  }else if (req.query[price]){
+    res.send('Namer')
+  }
 
-
+})
 
 
 //grave yard
