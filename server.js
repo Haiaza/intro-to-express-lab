@@ -76,26 +76,30 @@ app.get('/shoes', (req, res) => {
     { name: "Fifty-Inch Heels", price: 175, type: "heel" }
   ];
 
+  let name = req.query.name
+  let price = req.query.price 
+  let type = req.query.type  
 
-  let output;
 
-  switch (req.query) {
-    case 'min-price':
-      output = 'MIN PRICE';
-      break;
-    case 'max-price':
-      output = 'MAX PRICE';
-      break;
-    case 'type':
-      output = 'TYPE';
-      break;
-    case '':
-      output = 'None';
-      break;
-    default:
-      console.log('???')
-      output = 'Test message'
-  }
-  res.send(output)
-})
 
+
+
+//grave yard
+
+  // switch (req.query) {
+  //   case 'min-price':
+  //     output = 'MIN PRICE';
+  //     break;
+  //   case 'max-price':
+  //     output = 'MAX PRICE';
+  //     break;
+  //   case 'type':
+  //     output = 'TYPE';
+  //     break;
+  //   case '':
+  //     output = 'None';
+  //     break;
+  //   default:
+  //     console.log('???')
+  //     output = 'Test message'
+  // }
