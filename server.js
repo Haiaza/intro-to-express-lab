@@ -79,6 +79,8 @@ app.get('/shoes', (req, res) => {
   let name = req.query.name
   let price = req.query.price 
   let type = req.query.type  
+  let minPrice = req.query.minPrice
+  let maxPrice = req.query.maxPrice
 
   let filteredShoes = shoes;
 
@@ -86,13 +88,19 @@ app.get('/shoes', (req, res) => {
     filteredShoes = filteredShoes.filter(shoe => shoe.name.toLowerCase() === name.toLowerCase())
   }
   if (price) {
-    filteredShoes = filteredShoes.filter(shoe => shoe.price.toLowerCase() === price.toLowerCase())
+    filteredShoes = filteredShoes.filter(shoe => shoe.price === price)
+  }
+  if (minPrice) {
+    filteredShoes = filteredShoes.filter(shoe => shoe.price >= minPrice)
+  }
+  if (maxPrice) {
+    filteredShoes = filteredShoes.filter(shoe => shoe.price <= maxPrice)
   }
   if (type) {
     filteredShoes = filteredShoes.filter(shoe => shoe.type.toLowerCase() === type.toLowerCase())
   }
 
-  res.send(filteredShoes)
+  res.json(filteredShoes)
 })
 
 
