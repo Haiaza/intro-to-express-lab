@@ -80,14 +80,19 @@ app.get('/shoes', (req, res) => {
   let price = req.query.price 
   let type = req.query.type  
 
-  if (req.query[name]){
-    res.send('Namee')
-  }else if (req.query[type]){
-    res.send('Typer')
-  }else if (req.query[price]){
-    res.send('Namer')
+  let filteredShoes = shoes;
+
+  if (name) {
+    filteredShoes = filteredShoes.filter(shoe => shoe.name.toLowerCase() === name.toLowerCase())
+  }
+  if (price) {
+    filteredShoes = filteredShoes.filter(shoe => shoe.price.toLowerCase() === price.toLowerCase())
+  }
+  if (type) {
+    filteredShoes = filteredShoes.filter(shoe => shoe.type.toLowerCase() === type.toLowerCase())
   }
 
+  res.send(filteredShoes)
 })
 
 
